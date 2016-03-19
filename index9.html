@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Cookie编程</title>
+	</head>
+	<body>
+		<input type="button" value="保存cookie数据" onclick="saveCookie('username','aaa','3');"><br>
+		<input type="button" value="清空cookie数据" onclick="getCookie('username')">
+		<script>
+			function  saveCookie(cname,cvalue,exdays){
+				var d=new Date();//过期时间
+				d.setTime(d.getTime()+(exdays*24*60*60*1000));
+				var expires = "expires="+d.toGMTString();
+				document.cookie = cname+"="+cvalue+";"+expires;
+				alert("saveCookieSuccess---->"+cname+"="+cvalue+";"+expires);
+			}
+			
+			function getCookie(cname){
+				var name = cname+"=";
+				var ca=document.cookie.split(";");
+				for(var i=0;i<ca.length;i++){
+					var c=ca[i].trim();
+					
+					if(c.indexOf(name)==0){
+						alert("getCookie-->"+c.substring(name.length,c.length));
+						return c.substring(name.length,c.length);
+					}
+				}
+				
+			}
+		</script>
+	</body>
+</html>

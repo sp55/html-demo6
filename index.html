@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>定时器的使用</title>
+</head>
+<body>
+	<input type="button" onclick="count();" value="开始">
+	<input type="button" onclick="start();" value="计数器开始">
+	<input type="button" onclick="stop();" value="停止计数">
+	<div id="content"><img src="http://tp1.sinaimg.cn/2718604160/180/5746266331/1" width="30% height
+			 30%"></div>
+	<div id="num"></div>
+	<script>
+		function count(){
+			//设置3秒后执行代码
+			//setTimeout("alert('时间到了')",3000);
+			//setTimeout  在某个函数以内执行一个函数，只执行一次
+			//setInteger 让程序每隔一定时间来调用函数一次
+			//设置5秒后图片隐藏
+			setTimeout("hide();",5000);
+		
+		}
+		function hide(){
+			document.getElementById("content").innerHTML= ";"
+		}
+		//全局变量
+		var count=0;
+		var t1 = null;
+		function start(){
+			count=count+1;
+			document.getElementById("num").innerHTML = "计数:"+count;
+			t1=setTimeout("start();",1000);//1000毫秒以后再次调用自己
+		}
+		function stop(){
+			clearTimeout(t1);
+		}
+	</script>
+</body>
+</html>

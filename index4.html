@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>window对象</title>
+	</head>
+	<body>
+		<input type="button" value="学习js" id="bt01">
+		<script>
+			window.alert("你好");
+			alert("你好，欢迎来到网络的世界");
+			var bt = window.document.getElementById("bt01");
+			bt.onclick = function(){
+				window.location.href = "http://www.baidu.com"
+			}
+		</script>
+	</body>
+</html>

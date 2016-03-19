@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>访问历史</title>
+	</head>
+	<body>
+		<input id="bt01" type="button" value="上一页"><br>
+		<input id="bt02" type="button" value="下一页"><br>
+		<script>
+			var bt01 = document.getElementById("bt01");
+			var bt02 = document.getElementById("bt02");
+			bt01.onclick = function(){
+				//后退
+				history.back();
+			}
+			bt02.onclick  =function(){
+				//前进
+				history.forward();
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>AJAX编程</title>
+	</head>
+	<body>
+		输入手机号:<input type="text" id="mobile"><br>
+		<input type="button" value="查询" id="bt01">
+			
+		<script>
+			var xmlHttp;
+			function geturl(){
+				//用于实现ajax请求
+				//创建一个网络请求对象
+				createXMLHttpRequest();
+				//发送请求   这里的url貌似是个内网地址，我们知道方法就行了
+				var url1="http://www.h5edu.cn/Public/weixin/test01.php";
+				var param = "tel="+document.getElementById("mobile").value;
+				send(url1,"get",param);
+			
+				//调用回调函数处理返回结果
+				
+			}
+			function createXMLHttpRequest(){
+				if (window.ActiveXObject) {//IE浏览器
+					xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+				} else{
+					xmlHttp = new XMLHttpRequest();
+				}
+			}
+			function send(url,method,param){
+				xmlHttp.open(method,url,true);
+				//设置回调函数
+				xmlHttp.onreadystatechange = callback;
+				xmlHttp.send(param);
+			}
+			function callback(){
+				var result;
+				if(xmlHttp.readyState==4){
+					if(xmlHttp,status==200){
+						result=xmlHttp.responseText;//获取从服务器返回的信息
+						alert(result);
+					}
+				}
+			}
+			document.getElementById("bt01").onclick = geturl();
+		</script>
+	</body>
+</html>

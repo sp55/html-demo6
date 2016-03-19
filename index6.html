@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>网页定时跳转url</title>
+	</head>
+	<body>
+		<h1 id="h"></h1>
+		<script>
+			var nowh = document.getElementById("h");
+			var num = 5;
+			
+			function change(){
+				if(num>0){
+					num--;
+					nowh.innerHTML = "抢红包倒计时:"+num;
+					setTimeout(change,1000);
+				}else{
+					location.href = "http://www.baidu.com";
+				}
+			}
+			setTimeout(change,1000);
+		</script>
+	</body>
+</html>
